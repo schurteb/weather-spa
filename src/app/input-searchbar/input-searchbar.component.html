@@ -1,0 +1,16 @@
+<div class="searchbarcomponent content" role="main">
+
+  <!-- Highlight Card -->
+  <div class="card highlight-card card-small">
+
+    <label for="address">Address: </label><br />
+    <input id="address" type="text" [formControl]="address"><br />
+
+    <button id="submit" type="button" (click)="onSubmit($event)" >Submit</button>
+
+    <p>Value:<br />{{ address.value }}</p>
+    <p>Coords:<br />{{ coords.value }}</p>
+
+  </div>
+
+</div>
