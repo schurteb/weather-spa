@@ -1,15 +1,16 @@
-<div class="content" role="main">
+<div class="searchbarcomponent content" role="main">
 
   <!-- Highlight Card -->
   <div class="card highlight-card card-small">
 
-    <label for="place">Place: </label><br />
-    <input id="place" type="text" [formControl]="place">
+    <label for="address">Address: </label><br />
+    <input id="address" type="text" [formControl]="address"><br />
 
-    <p>Value:<br />{{ place.value }}</p>
+    <button id="submit" type="button" (click)="onSubmit($event)" >Submit</button>
+
+    <p>Value:<br />{{ address.value }}</p>
+    <p>Coords:<br />{{ coords.value }}</p>
 
   </div>
-
-  <!--<input-searchbar></input-searchbar>-->
 
 </div>
