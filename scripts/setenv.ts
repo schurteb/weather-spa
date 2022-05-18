@@ -13,6 +13,7 @@ const targetPath = isProduction
 const environmentFileContent = `
 export const environment = {
    production: ${isProduction},
+   GOOGLE_GEOCODING_API_URL: "${process.env["GOOGLE_GEOCODING_API_URL"]}",
    GOOGLE_GEOCODING_API_KEY: "${process.env["GOOGLE_GEOCODING_API_KEY"]}"
 };
 `;
