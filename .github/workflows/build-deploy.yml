@@ -6,6 +6,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
       - uses: actions/checkout@v3
       - name: Cache modules
         uses: actions/cache@v1
@@ -29,4 +33,4 @@ jobs:
       - name: Build
         run: npm run build
       - name: Deploy
-        run: aws s3 sync ./dist/weather-app s3://spa.schurteb.ch
+        run: aws s3 sync ./dist/weather-app s3://spa.schurteb.ch/${{ steps.extract_branch.outputs.branch }}
