@@ -10,6 +10,7 @@ const targetPath = isProduction
    : `./src/environments/environment.ts`;
 // we have access to our environment variables
 // in the process.env object thanks to dotenv
+console.log(`Writing variables into ${targetPath}...`);
 const environmentFileContent = `
 export const environment = {
    production: ${isProduction},
