@@ -1,10 +1,6 @@
 name: Build & deploy
 
-on:
-  push:
-    branches:
-      - master
-      - feat/deploy-through-github-actions
+on: push
 
 jobs:
   deploy:
