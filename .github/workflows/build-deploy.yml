@@ -3,8 +3,42 @@ name: Build & deploy
 on: push
 
 jobs:
-  deploy:
+  deploy-master:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - uses: actions/checkout@v3
+      - name: Cache modules
+        uses: actions/cache@v1
+        id: npm-cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-npm-
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Deploy
+        run: aws s3 sync ./dist/weather-app s3://spa.schurteb.ch
+
+  deploy-branches:
+    runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/master'
     steps:
       - name: Extract branch name
         shell: bash
