@@ -33,4 +33,4 @@ jobs:
       - name: Build
         run: npm run build
       - name: Deploy
-        run: aws s3 sync ./dist s3://spa.schurteb.ch
+        run: aws s3 sync ./dist/weather-app s3://spa.schurteb.ch
