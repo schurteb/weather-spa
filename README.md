@@ -1,3 +1,5 @@
+[![Build & deploy](https://github.com/schurteb/weather-spa/actions/workflows/build-deploy.yml/badge.svg?branch=master)](https://github.com/schurteb/weather-spa/actions/workflows/build-deploy.yml)
+
 # WeatherApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
