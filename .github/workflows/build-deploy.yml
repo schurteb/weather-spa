@@ -66,5 +66,7 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+      - name: Modify index.html
+        run: sed -i 's|base href="\/"|base href="\/${{ steps.extract_branch.outputs.branch }}\/"|' ./dist/weather-app/index.html
       - name: Deploy
         run: aws s3 sync ./dist/weather-app s3://spa.schurteb.ch/${{ steps.extract_branch.outputs.branch }}
