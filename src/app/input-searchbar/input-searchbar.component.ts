@@ -10,18 +10,28 @@ import { Coordinates } from '../classes/coordinates';
   styleUrls: ['./input-searchbar.component.css']
 })
 export class SearchbarComponent {
-  address = new FormControl('TEKO Schweizerische Fachschule AG, Pilatusstrasse 38, Luzern, Schweiz');
+  //address = new FormControl('TEKO Schweizerische Fachschule AG, Pilatusstrasse 38, Luzern, Schweiz');
   coords = new FormControl('');
+  address = 'TEKO Schweizerische Fachschule AG, Pilatusstrasse 38, Luzern, Schweiz';
 
   constructor(private http: HttpClient) { }
 
   @Output()
   coordinatesChanged: EventEmitter<Coordinates> = new EventEmitter();
 
-  onSubmit(e: any) {
-    console.log(this.address.value);
+  onKeyDown(e: KeyboardEvent) {
+    console.log(e);
 
-    this.requestGeocodingAPI(this.address.value);
+    if (e.key == "Enter")
+      this.onSubmit(e);
+
+  }
+
+  onSubmit(e: any) {
+    //console.log(this.address.value);
+
+    //this.requestGeocodingAPI(this.address.value);
+    this.requestGeocodingAPI(this.address);
   }
 
   requestGeocodingAPI(address: String) {

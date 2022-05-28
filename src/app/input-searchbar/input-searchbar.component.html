@@ -1,16 +1,24 @@
 <div class="searchbarcomponent content" role="main">
 
-  <!-- Highlight Card -->
-  <div class="card highlight-card card-small">
+  <mat-form-field class="address-form-field" appearance="fill">
+    <mat-label>Address</mat-label>
+    <input matInput type="text" [(ngModel)]="address" (keydown)="onKeyDown($event)">
+    <button *ngIf="address" matSuffix mat-icon-button aria-label="Clear" (click)="address=''">
+      <mat-icon>close</mat-icon>
+    </button>
+    <button *ngIf="address" matSuffix mat-icon-button aria-label="Submit" (click)="onSubmit($event)">
+      <mat-icon>check</mat-icon>
+    </button>
+  </mat-form-field>
 
-    <label for="address">Address: </label><br />
-    <input id="address" type="text" [formControl]="address"><br />
+  <br />
 
-    <button id="submit" type="button" (click)="onSubmit($event)" >Submit</button>
+  <button mat-raised-button color="primary" id="submit" (click)="onSubmit($event)">Submit</button>
 
-    <p>Value:<br />{{ address.value }}</p>
-    <p>Coords:<br />{{ coords.value }}</p>
+  <br />
+  
+  <p>Value:<br />{{ address }}</p>
+  <p>Coords:<br />{{ coords.value }}</p>
 
-  </div>
 
 </div>
