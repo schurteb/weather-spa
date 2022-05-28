@@ -1,3 +1,12 @@
 .searchbarcomponent.content {
-    text-align: -webkit-center
+  text-align: -webkit-center
+}
+
+.mat-form-field {
+  min-width: -webkit-fill-available;
+}
+
+button#submit {
+  /* Override default color of Angular Material's Primary Theme */
+  background-color: #1976d2 !important;
 }
