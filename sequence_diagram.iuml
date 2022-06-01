@@ -1,0 +1,7 @@
+@startuml
+WeatherSPA -> Google: 1. Send Address
+Google --> WeatherSPA: 2. Coordinates
+
+WeatherSPA -> OpenWeatherAPI: 3. Coordinates
+WeatherSPA <-- OpenWeatherAPI: 4. Weather Data
+@enduml

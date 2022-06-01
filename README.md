@@ -30,10 +30,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## API Sequence Diagram
 
-@startuml
-WeatherSPA -> Google: 1. Send Address
-Google --> WeatherSPA: 2. Coordinates
-
-WeatherSPA -> OpenWeatherAPI: 3. Coordinates
-WeatherSPA <-- OpenWeatherAPI: 4. Weather Data
-@enduml
+![sequence-diagram](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/schurteb/weather-spa/master/sequence_diagram.iuml)
