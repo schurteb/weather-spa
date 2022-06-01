@@ -15,7 +15,9 @@ const environmentFileContent = `
 export const environment = {
    production: ${isProduction},
    GOOGLE_GEOCODING_API_URL: "${process.env["GOOGLE_GEOCODING_API_URL"]}",
-   GOOGLE_GEOCODING_API_KEY: "${process.env["GOOGLE_GEOCODING_API_KEY"]}"
+   GOOGLE_GEOCODING_API_KEY: "${process.env["GOOGLE_GEOCODING_API_KEY"]}",
+   OPENWEATHERMAP_API_URL: "${process.env["OPENWEATHERMAP_API_URL"]}",
+   OPENWEATHERMAP_API_KEY: "${process.env["OPENWEATHERMAP_API_KEY"]}"
 };
 `;
 // write the content to the respective file
