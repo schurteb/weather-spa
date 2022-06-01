@@ -8,11 +8,17 @@ import { Coordinates } from './classes/coordinates';
 })
 export class AppComponent {
   title = 'weather-app';
+  weatherData = JSON.stringify({});
 
   constructor() {}
 
   coordinatesChangedHandler(coords: Coordinates) {
     console.log("CoordinatesChangedEventHandler");
     console.log(coords);
+  }
+
+  weatherDataChangedHandler(data: any) {
+    console.log("weatherDataChangedEventHandler");
+    console.log(data);
   }
 }
