@@ -43,7 +43,9 @@ export class WeatherDataComponent {
     .units(Units.Metric)
     // send the request
     .execute()
-    // catch the response & parse it into an object implementing the interface Forecast defined in 'WeatherDataResponse.interface.ts'
+    // catch the response & 
+    // parse it into an object implementing the interface Forecast
+    // defined in 'WeatherDataResponse.interface.ts'
     .then((value: Forecast) => {
       console.log(value);
       this.weatherData = value;
