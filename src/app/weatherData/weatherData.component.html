@@ -1,0 +1,33 @@
+<div class="weatherdatacomponent content" role="main">
+
+  <div class="weatherdatacomponent content weatherDataDailyForecast" *ngFor="let daily of weatherData?.daily">
+    <div class="weatherDataDailyForecastItem">
+      <table border="0">
+        <tr>
+          <td [colSpan]="2">{{ parseDate(daily.dt).toLocaleDateString("de-DE", { weekday: 'short' }) + ", " + parseDate(daily.dt).toLocaleDateString("de-DE") }}</td>
+        </tr>
+        <tr>
+          <td [colSpan]="2">
+            <img class="weather_img" [attr.src]="'http://openweathermap.org/img/w/' + daily.weather[0].icon + '.png'" alt="weather_img" />
+          </td>
+        </tr>
+        <tr>
+          <td [colSpan]="2">
+            {{ daily.weather[0].main }}
+          </td>
+        </tr>
+        <tr>
+          <td [colSpan]="2">
+            {{ daily.weather[0].description }}
+          </td>
+        </tr>
+        <tr>
+          <td [colSpan]="2">
+            {{ daily.temp.max + "° / " + daily.temp.min + "°" }}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</div>

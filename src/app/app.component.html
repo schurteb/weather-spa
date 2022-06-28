@@ -27,6 +27,8 @@
 
   <input-searchbar class="input-searchbar" (coordinatesChanged)="coordinatesChangedHandler($event)"></input-searchbar>
 
+  <weatherdata *ngIf="showWeather" [coordinates]="coordinates"></weatherdata>
+
 </div>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
