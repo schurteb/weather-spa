@@ -22,22 +22,34 @@ export class WeatherDataComponent {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['coordinates']) {
-        // Do your logic here
-        console.log("coordinatesStr changed");
-        this.requestWeatherData(this.coordinates);
+      // Do your logic here
+      console.log("coordinatesStr changed");
+      this.requestWeatherData(this.coordinates);
     }
   }
 
   requestWeatherData(c: Coordinates) {
-
-    buildOpenWeatherMapRequest(environment.OPENWEATHERMAP_API_KEY, parseFloat(c.latitude.toString()), parseFloat(c.longitude.toString()))
-      .units(Units.Metric)
-      .execute()
-      .then((value: Forecast) => {
-        console.log(value);
-        this.weatherData = value;
-      })
-      .catch(console.log);
+    // Build the OWM request object, include API-Key & coordinates
+    buildOpenWeatherMapRequest(
+      environment.OPENWEATHERMAP_API_KEY,
+      parseFloat(
+        c.latitude.toString()
+      ),
+      parseFloat(
+        c.longitude.toString()
+      )
+    )
+    // define the units to be requests
+    .units(Units.Metric)
+    // send the request
+    .execute()
+    // catch the response & parse it into an object implementing the interface Forecast defined in 'WeatherDataResponse.interface.ts'
+    .then((value: Forecast) => {
+      console.log(value);
+      this.weatherData = value;
+    })
+    // catch any errors that might occur
+    .catch(console.log);
   }
 
   parseDate(unix: number): Date {
