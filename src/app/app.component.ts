@@ -8,6 +8,10 @@ import { Coordinates } from './classes/coordinates';
 })
 export class AppComponent {
   title = 'weather-app';
+  coordinates: Coordinates = new Coordinates("None");
+  coordinatesStr: string = "";
+  showWeather: boolean = false;
+
   weatherData = JSON.stringify({});
 
   constructor() {}
@@ -15,6 +19,10 @@ export class AppComponent {
   coordinatesChangedHandler(coords: Coordinates) {
     console.log("CoordinatesChangedEventHandler");
     console.log(coords);
+    this.coordinates = coords;
+    this.coordinatesStr = JSON.stringify(this.coordinates);
+    console.log(this.coordinatesStr);
+    this.showWeather = true;
   }
 
   weatherDataChangedHandler(data: any) {

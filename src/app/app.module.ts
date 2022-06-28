@@ -8,6 +8,7 @@ import { InputSearchbarModule } from './input-searchbar/input-searchbar.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/material.module';
 import { FormsModule } from '@angular/forms';
+import { WeatherDataModule } from './weatherData/weatherData.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     ReactiveFormsModule,
     InputSearchbarModule,
+    WeatherDataModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
